@@ -590,12 +590,7 @@ void Estimator::processImage(const map<int, vector<pair<int, Eigen::Matrix<doubl
         ROS_DEBUG("solver costs: %fms", t_solve.toc());
 
 #if show_state
-           static double solve_time =0;
             backend_times++;
-            temp_backendtime = backend_times;
-            DebugFile<<"-----------------------------------"<<endl<<"第"<<backend_times<<"次optimization消耗时间:"<< t_solve.toc()<<"ms"<<endl;
-            solve_time +=t_solve.toc();
-            DebugFile<<"前"<<backend_times<<"次optimization平均耗时:"<< solve_time/backend_times<<"ms"<<endl;
 #endif
         if (failureDetection())  //failureDetection返回值永远为false,意味着代码里这些并不会发生的,可忽略
         {

@@ -25,7 +25,6 @@
 #include "qt_plot/widget.h"
 #if show_state
 extern ofstream DebugFile;
-unsigned frontend_times =0;
 extern ros::Time system_start_time;
 bool start_count_time = 0;
 bool refresh_flag =0;
@@ -175,6 +174,7 @@ void sync_process()
         }
 
 #if show_state
+            static unsigned frontend_times =0;
             if(start_time.toc()>1){
             frontend_times++;
              DebugFile<<"第"<<frontend_times<<"次前端消耗时间:"<< start_time.toc()<<"ms"<<endl;
